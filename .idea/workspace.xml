@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13632641-8e06-4be0-add5-434bbce9fbf2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/UseCaseDiagram1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/概要设计.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/测试计划.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/类图.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/详细设计.doc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/需求分析.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/用例.mdj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/类图.mdj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/细化类图.mdj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="13632641-8e06-4be0-add5-434bbce9fbf2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,11 +215,6 @@
             <path>
               <item name="SEProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEProject" type="462c0819:PsiDirectoryNode" />
-              <item name="SEProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SEProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SEProject" type="462c0819:PsiDirectoryNode" />
               <item name="SEsite" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -355,7 +339,7 @@
       <workItem from="1577151154932" duration="1562000" />
       <workItem from="1577152745040" duration="451000" />
       <workItem from="1577153221330" duration="8456000" />
-      <workItem from="1577171253695" duration="1719000" />
+      <workItem from="1577171253695" duration="2226000" />
     </task>
     <task id="LOCAL-00001" summary="finish">
       <created>1577171534089</created>
@@ -364,7 +348,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577171534089</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finish">
+      <created>1577173631621</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577173631621</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finish">
+      <created>1577173666129</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1577173666129</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -400,7 +398,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112446000" />
+    <option name="totallyTimeSpent" value="112953000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -412,7 +410,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21002132" />
