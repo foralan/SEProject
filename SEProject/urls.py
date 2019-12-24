@@ -31,7 +31,7 @@ urlpatterns = [
     url(r'info-project-deal/', views.InfoProjectDeal),
     url(r'info-pwd/', views.PwdEdit),
     url(r'info-delete/', views.DeleteUser),
-    url(r'info/', views.Info),
+
 
     url(r'm-p-info/', views.MPInfo),
     url(r'm-create/', views.MCreate),
@@ -43,6 +43,7 @@ urlpatterns = [
     url(r'm-edit/', views.MEdit),
     url(r'manage/', views.Manage),
 
+    url(r'info/', views.Info),
     url(r'msg-sendmsg/', views.MsgSendMsg),
     url(r'msg/', views.Msg),
 

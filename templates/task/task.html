@@ -13,59 +13,62 @@
             {% endifequal %}
             {% for one in taskAll %}
             <div class="jumbotron">
-                <div>
-                    <h4><li>ProjectName: {{one.nameProject}}  </li>
-                        <li>ProjectCode: {{one.code}}</li>
-                    </h4>
-                        <br>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5>TaskName: {{one.name}}</h5>
-                            <li>TaskContent:</li>
-                            <div class="container-fluid">
-                                <a>{{one.content}}</a>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div>
+                        <h4><li>ProjectName: {{one.nameProject}}  </li>
+                            <li>ProjectCode: {{one.code}}</li>
+                        </h4>
+                            <br>
+                        <div class="card">
+                            <input class="btn btn-secondary" value={{one.id}}> 
+                            <div class="card-body">
+                                <h5>TaskName: {{one.name}}</h5>
+                                <li>TaskContent:</li>
+                                <div class="container-fluid">
+                                    <a>{{one.content}}</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card-footer">
-                            <li>TaskPushTime: {{one.pushTime}}</li>
-                            <li>TaskDeadLine: {{one.deadLine}}</li>
+                            <div class="card-footer">
+                                <li>TaskPushTime: {{one.pushTime}}</li>
+                                <li>TaskDeadLine: {{one.deadLine}}</li>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br>
-                <button type="button" class="btn btn-primary btn-lg"  style="float: right;" data-toggle="modal" data-target="#myModal">
-                    提交任务
-                    </button>
-                </div>         
-                  <!-- 模态框 -->
-                  <div class="modal fade" id="myModal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <!-- 模态框头部 -->
-                        <div class="modal-header">
-                          <h4 class="modal-title">提交任务</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <br>
+                    <button type="button" class="btn btn-primary btn-lg"  style="float: right;" data-toggle="modal" data-target="#myModal">
+                        提交任务
+                        </button>
+                      <!-- 模态框 -->
+                      <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <!-- 模态框头部 -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">提交任务</h4>
+                              <button type="button" class="close" data-dismiss="modal"  >&times;</button>
+                            </div>
+                                <!-- 模态框主体 -->
+                                <div class="modal-body">
+                                    <input type="text" name="name" class="form-control" placeholder="Name">
+                                    <br>
+                                    <input type="text" name="taskId" class="form-control" placeholder="TaskId">
+                                    <br>
+                                    <textarea class="form-control" name="content" placeholder="Content"></textarea> 
+                                    <br>
+                                    <input type="file" name="upload" class="form-control" style="height: max-content;" >
+                                    <br>    
+                                </div>
+                                <!-- 模态框底部 -->
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary"type="submit" >提交</button>    
+                                </div>
+                          </div>
                         </div>
-                        <form  method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <!-- 模态框主体 -->
-                            <div class="modal-body">
-                                <input type="text" name="name" class="form-control" placeholder="Name">
-                                <br>
-                                <textarea class="form-control" name="content" placeholder="Content"></textarea> 
-                                <br>
-                                <input type="file" name="upload" class="form-control" style="height: max-content;" >
-                                <br>                    
-                            </div>
-                            <!-- 模态框底部 -->
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" type="submit" value={{one.id}} name="taskId">提交</button>
-                            </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>  
+                    </div> 
+                </form>
             </div>  
+            <br>
             {% endfor %}
         </div>    
     </body>

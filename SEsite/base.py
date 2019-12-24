@@ -50,7 +50,7 @@ class ControlUser:
     def checkSignIn(form=FormSignIn()):
         email=form.cleaned_data['email']
         password=form.cleaned_data['password']
-        if checkExist(email=email):
+        if checkExist(email=email,model=User):
             user=User.objects.get(email=email)
             if password==user.password:
                 if user.isVerificated==True and user.isFreezed==False:
@@ -71,14 +71,16 @@ class ControlUser:
         work=form.cleaned_data['work']
         password = form.cleaned_data['password']
         profile=form.cleaned_data['profile']
-        isVerificated=False
+        isVerificated=True
         isFreezed=False
         if checkExist(email=email):
             return False
         else:
-            User.objects.create(email=email,name=name,phone=phone,
+            user=User.objects.create(email=email,name=name,phone=phone,
                                 work=work,password=password,profile=profile,isVerificated=isVerificated,
                                 isFreezed=isFreezed)
+            str='欢迎使用项目管理系统！'+user.name
+            ControlMsg.sendMsg(userId=user.id,fromWho='admin',content=str)
             return True
 
     # 编辑用户信息
@@ -90,6 +92,8 @@ class ControlUser:
         user.work = form.cleaned_data['work']
         user.profile=form.cleaned_data['profile']
         user.save()
+        str = user.name+': 您已成功修改自身的用户信息!'
+        ControlMsg.sendMsg(userId=user.id, fromWho='admin', content=str)
         return
 
 
@@ -100,13 +104,15 @@ class ControlUser:
         if user.password==nowPassword:
             user.password=toChange
             user.save()
+            str = user.name + ': 您已成功修改密码！'
+            ControlMsg.sendMsg(userId=user.id, fromWho='admin', content=str)
             return True
         else:
             return False
 
     # 注销用户
     @staticmethod
-    def deleteUser(id=0,password='',code=''):
+    def deleteUser(id=0,password=''):
         user=User.objects.get(id=id)
         if user.password==password:
             user.delete()
@@ -137,15 +143,17 @@ class ControlUser:
 class ControlProject:
     # 创建项目
     @staticmethod
-    def createProject(form=FormCreateProject,id=0):
+    def createProject(form=FormCreateProject(),id=0):
         user=User.objects.get(id=id)
         name=form.cleaned_data['name']
         code=form.cleaned_data['code']
+        print(code)
         describe=form.cleaned_data['describe']
-        if checkExist(code=code):
+        if checkExist(code=code,model=Project):
             return False
         else:
-            Project.objects.create(name=name,code=code,describe=describe,memberNum=1)
+            project=Project.objects.create(name=name,code=code,creator=user.email,describe=describe,memberNum=1)
+            user.projectInCharge.add(project)
             return True
 
     @staticmethod
@@ -161,6 +169,7 @@ class ControlProject:
         user=User.objects.get(id=id)
         if project.creator==user.email and user.password==password:
             project.delete()
+            return True
         else:
             return False
 
@@ -182,6 +191,7 @@ class ControlProject:
     def inviteUser(email='',code='',instruction=''):
         Invite.objects.create(userEmail=email,projectCode=code,instruction=instruction)
 
+    @staticmethod
     def deleteMember(email='',code='',reason=''):
         tmp=Project.objects.get(code=code).member
         ControlMsg.sendMsg(userId=User.objects.get(email=email).id,fromWho=Project.objects.get(code=code).name,content=reason)
@@ -235,6 +245,7 @@ class ControlMsg:
             msg.pushTime=pushTime
             msg.isSend=False
         msg.save()
+        
     @staticmethod
     def deleteMsg(id=''):
         msg=Message.objects.get(id=id)

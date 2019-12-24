@@ -300,7 +300,7 @@ def MCreate(request):
             if form.is_valid():
                 ControlProject.createProject(form,id=request.session['id'])
                 request.session['pid']=Project.objects.get(code=form.cleaned_data['code']).id
-                return render(request,'/manage/p-info',locals())
+                return HttpResponseRedirect('../m-p-info',locals())
             else:
                 status=1
         else:
@@ -455,9 +455,9 @@ def MCommitTask(request):
         delete = request.POST.get('delete', '')
         download = request.POST.get('download', '')
         if delete != '':
-            Commit.objects.get(id=download).delete()
+            Commit.objects.get(id=delete).delete()
             status = 9
-            return render(request, 'file/file.html', locals())
+            return render(request, 'manage/commit-task.html', locals())
         if download != '':
             file = Commit.objects.get(id=download).file
             response = StreamingHttpResponse(file)
@@ -470,7 +470,7 @@ def MCommitTask(request):
         if file != '':
             if ControlFile.uploadFile(file, id=user.id):
                 status = 2
-                return render(request, 'file/file.html', locals())
+                return render(request, 'manage/commit-task.html', locals())
 
 def MSendMsg(request):
     user = User.objects.get(id=request.session['id'])
@@ -490,7 +490,7 @@ def MSendMsg(request):
         email = request.POST.get('email', '')
         content = request.POST.get('content', '')
         if email!='' and User.objects.filter(email=email).exists():
-            ControlMsg.sendMsg(userId=User.objects.get(email=email).id,fromWho=project.name,content=content)
+            ControlMsg.sendMsg(userId=User.objects.get(email=email).id,fromWho='Project: '+project.name,content=content)
             status=8
             return render(request,'manage/p-info.html',locals())
         else:
@@ -527,7 +527,7 @@ def MEdit(request):
                 return render(request,'manage/edit.html',locals())
         else:
             if ControlProject.deleteProject(id=user.id,code=project.code,password=password):
-                return HttpResponseRedirect('index/',locals())
+                return render(request,'manage/manage.html',locals())
             else:
                 status=10
                 return render(request,'manage/edit.html',locals())
@@ -573,6 +573,7 @@ def Tasks(request):
         content=request.POST.get('content','')
         file=request.FILES.get('upload','')
         taskId=request.POST.get('taskId','')
+        print(taskId)
         ControlTask.commitTask(taskId=taskId,userId=user.id,name=name,content=content,file=file)
         return render(request,'task/task.html',locals())
 
@@ -586,7 +587,6 @@ def MsgSendMsg(request):
     if len(task) > 3:
         task = task[0:3]
     tool=5
-    project = Project.objects.get(id=request.session['pid'])
     status=0
     if request.method=='GET':
         return render(request,'msg/send-msg.html',locals())

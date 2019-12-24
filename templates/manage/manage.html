@@ -10,9 +10,12 @@
                         <div style="text-align: center;">
                         <p>您当前没有管理的项目，是否创建一个项目进行管理</p>
                         </div>
-                        <a class='btn btn-lg btn-primary btn-block' href="manage/create">创建</a>
+                        <a class='btn btn-lg btn-primary btn-block' href="../m-create">创建</a>
                     </div>
                     {% else %}
+                    <div class="jumbotron">
+                        <a class='btn btn-lg btn-primary btn-block' href="../m-create">创建</a>
+                    </div>
                         {% for one in project %}
                         <div class="jumbotron">
                             <form class="form-signin" method="POST">

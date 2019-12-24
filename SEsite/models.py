@@ -44,7 +44,7 @@ class Task(models.Model):
     content=models.TextField('content')                         # 内容
     editTime=models.DateField('editTime',auto_now_add=True)     # 编辑时间
     pushTime=models.DateField('pushTime',auto_now_add=True)                       # 推送时间
-    deadLine=models.DateField('deadLine')                       # 截止时间
+    deadLine=models.DateField('deadLine',auto_now_add=True)                       # 截止时间
     isPushed=models.BooleanField('isPushed',default=False)
 
     member=models.ManyToManyField('User',through='shipUserTask',
@@ -96,7 +96,7 @@ class Message(models.Model):
     userId=models.IntegerField('userId')
     projectId = models.IntegerField('projectId')
     content=models.TextField('content')
-    fromWho = models.CharField('fromWho',max_length=12)
+    fromWho = models.CharField('fromWho',max_length=18)
     pushTime=models.DateField('pushTime',auto_now_add=True)
     isSend=models.BooleanField('isSend',default=False)
 
