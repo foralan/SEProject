@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "info/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "info/alert.html" %}
+                    </div>
+                    <div class="jumbtron">
+                        <form class="form-signin" method="POST">
+                            <h2 class="form-signin-heading">Apply 申请</h2>
+                            {% csrf_token %}
+                            <label for="inputEmail" class="sr-only">Code</label>
+                            <input name="code" class="form-control" placeholder="Project code" required autofocus>
+                            <br>
+                            <label for="inputEmail" class="sr-only">Instruction</label>
+                            <textarea  name="instruction" class="form-control" placeholder="Instruction" required autofocus></textarea>
+                            <br>
+                            <button class="btn btn-lg btn-primary btn-block" type="submit">申请</button>
+                        </form>
+                    </div>   
+                    <br>
+                    <div class="jumbtron">
+                        <h2>Invite 邀请</h2>
+                        {% for one in invite %}
+                        <div class="card">
+                            <div class="card-header">Name: {{one.userName}}</div>
+                            <div class="card-body">
+                                <li>Email: {{one.userEmail}}</li>
+                                <li>Instruciton:</li>
+                                <div class="container-fluid">
+                                    <p>{{one.instruciton}}</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger" value= {{one.id}} style="float: right;border-right: 15px;" name="reject" type="submit">拒绝</button>
+                                    <button class="btn btn-success" value= {{one.id}} style="float: right;border-right: 0px;" name="accept" type="submit">同意</button>
+                                </form>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

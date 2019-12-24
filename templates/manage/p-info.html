@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "manage/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "manage/alert.html" %}
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Name:  {{project.name}}</h1>
+                            <h2>Code:  {{project.code}}</h2>
+                        </div>
+                        <div class="card-body">
+                            <h4>Describe:<br>{{project.describe}}</h4>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="card">
+                        <div class="card-body">
+                            <li>CreateTime:  {{project.buildTime}}</li>
+                            <li>LastUpdateTime:  {{project.lastUpdateTime}}</li>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Member:</h2>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                       <th>姓名</th>
+                                       <th>邮箱</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    {% for one in member %}
+                                    <tr>
+                                        <td>{{one.name}}</td>
+                                        <td>{{one.email}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                 </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

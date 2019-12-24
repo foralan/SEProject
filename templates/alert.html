@@ -1,0 +1,24 @@
+{% ifequal status 1 %}
+    <div id="myAlert1" class="alert alert-warning">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>验证码错误！
+    </div>
+{% endifequal %}
+{% ifequal status 2 %}
+    <div id="myAlert2" class="alert alert-warning">
+        <a class="close" data-dismiss="alert">&times;</a>
+       <strong>警告！</strong>表单错误！
+    </div>
+{% endifequal %}
+{% ifequal status 3 %}
+    <div id="myAlert3" class="alert alert-warning">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>用户名或密码错误
+    </div>
+{% endifequal %}
+{% ifequal status 4 %}
+    <div id="myAlert3" class="alert alert-warning">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>修改成功
+    </div>
+{% endifequal %}

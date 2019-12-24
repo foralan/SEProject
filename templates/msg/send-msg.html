@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../msg">概览
+                            <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="../msg-sendmsg">发送消息
+                            <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "msg/alert.html" %}
+                    </div>
+                    <form class="form-signin" method="POST">
+                        <h2 class="form-signin-heading">Send Message</h2>
+                        <br>
+                        {% csrf_token %}
+                        <label for="inputEmail" class="sr-only">收件人:</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
+                        <br>
+                        <label for="inputEmail" class="sr-only">消息:</label>
+                        <textarea type="email" name="content" class="form-control" placeholder="Content" required autofocus></textarea>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">发送</button>
+                    </form>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

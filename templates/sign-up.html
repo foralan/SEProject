@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "alert.html" %}
+        <div class='container'>
+            <div class="jumbotron">
+                <h1 style="text-align: center;">Sign Up</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form }}
+                    <div class="form-group">
+                        <input value="{{ captcha.hashkey }}" name="hashkey" type="hidden" id="id_captcha_0">
+                        <br>
+                        <div style="text-align: center;">
+                            <a class="captcha">
+                                <img src="{{ captcha.image_url }}" id="id_captcha" >
+                            </a> <br>
+                        </div>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">注册</button>
+                </form>
+                <br>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+{% ifequal status 1 %}
+    <div id="myAlert" class="alert alert-danger">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>表单错误！
+    </div>
+{% endifequal %}
+{% ifequal status 2 %}
+    <div id="myAlert" class="alert alert-success">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>上传成功</strong>
+    </div>
+{% endifequal %}
+{% ifequal status 3 %}
+    <div id="myAlert" class="alert alert-success">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>操作成功</strong>
+    </div>
+{% endifequal %}

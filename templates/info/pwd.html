@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "info/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    {% include "info/alert.html" %}
+                    <form class='form-group' method="POST">
+                        {% csrf_token %}
+                        <h2 class="form-signin-heading">Reset Password</h2>
+                        <label>当前密码</label>
+                        <input type="password" name="nowPassword" class="form-control" placeholder="Password" required>
+                        <br>
+                        <label>修改密码</label>
+                        <input type="password" name="toChange" class="form-control" placeholder="Password" required>
+                        <br>
+                        <label>确认修改后密码</label>
+                        <input type="password" name="checkToChange" class="form-control" placeholder="Password" required>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
+                    </form>
+                </main> 
+            </div>
+        </div>      
+    </body>
+</html>

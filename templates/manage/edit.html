@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "manage/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "manage/alert.html" %}
+                    </div>
+                    <form class="form-signin" method="POST">
+                        <h2 class="form-signin-heading">Edit</h2>
+                        {% csrf_token %}
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <strong>Name:</strong><input name="name" class="form-control" placeholder="Name" required autofocus>
+                        <br>
+                        <label for="describe" class="sr-only">Instruction</label>
+                        <strong>Describe:</strong><textarea type="email" name="describe" class="form-control" placeholder="describe" required autofocus></textarea>
+                        <br>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
+                    </form>
+                    <br><br><br>
+                    <form class="form-signin" method="POST">
+                        <h2 class="form-signin-heading">Delete</h2>
+                        {% csrf_token %}
+                        <label>密码</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
+                        <br>
+                        <button class="btn btn-lg btn-danger btn-block" type="submit">注销</button>
+                    </form>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

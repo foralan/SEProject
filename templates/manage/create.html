@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "manage/alert.html" %}
+                    </div>
+                    <form class='form-signin' method="POST">
+                        <h2 class="form-signin-heading">Create</h2>
+                        {% csrf_token %}
+                        {{ form }}
+                        <div class="form-group">
+                            <input value="{{ captcha.hashkey }}" name="hashkey" type="hidden" id="id_captcha_0">
+                            <br>
+                            <div style="text-align: center;">
+                                <a class="captcha">
+                                    <img src="{{ captcha.image_url }}" id="id_captcha" >
+                                </a> <br>
+                            </div>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">创建</button>
+                    </form>
+                    <br>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

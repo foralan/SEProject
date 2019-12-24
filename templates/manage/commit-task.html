@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "manage/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div>
+                        {% include "manage/alert.html" %}
+                    </div>
+                    {% for one in commit %}
+                    <div class="jumbotron">
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>TaskName:  {{one.task.name}}</h2>
+                            </div>
+                            <div class="card-body">
+                                <li>{{one.task.content}}</li>
+                            </div>
+                            <div class="card-footer">
+                                <li>DeadLine:  {{one.task.deadLine}}</li>
+                            </div>
+                        </div>
+                        <br>
+                        {% for two in one.upload %}
+                        <div class="card">
+                            <div class="card-header">CommitName: {{two.name}}</div> 
+                            <div class="card-body">
+                                <li>UserName: {{two.username}}</li>
+                            <li>CommitContent:<br>{{two.content}}</li>
+                            <li>File: {{two.file.name}}</li>  
+                            </div>
+                            <div class="card-footer">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <button class="btn btn-danger" value= {{two.id}} style="float: right;border-right: 15px;" name="delete" type="submit">删除</button>
+                                    <button class="btn btn-success" value= {{two.id}} style="float: right;border-right: 0px;" name="download" type="submit">下载</button>
+                                </form>
+                                <div style="float: right;">
+                                    <a>CommitTime: {{two.commitTime}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>

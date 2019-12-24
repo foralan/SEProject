@@ -1,0 +1,99 @@
+<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+    <ul class="nav nav-pills flex-column">
+        {% ifequal tool 0 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-p-info">项目概况
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-p-info">项目概况
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+
+        {% ifequal tool 1 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-add-user">添加成员
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-add-user">添加成员
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+
+        {% ifequal tool 2 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-del-user">删除成员
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-del-user">删除成员
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+
+        {% ifequal tool 3 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-add-task">添加任务
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-add-task">添加任务
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+
+        {% ifequal tool 4 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-commit-task">任务提交
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-commit-task">任务提交
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+        {% ifequal tool 5 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-sendmsg">发送消息
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-sendmsg">发送消息
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+        {% ifequal tool 6 %}
+            <li class="nav-item">
+                <a class="nav-link active" href="../m-edit">编辑项目
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="../m-edit">编辑项目
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        {% endifequal %}
+    </ul>
+</nav>

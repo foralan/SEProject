@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            {% include "file/alert.html" %}
+            <div class="jumbotron">
+                <div class="col-md-6 offset-md-5 ">
+                    <button type="button" class="btn btn-primary btn-lg"  data-toggle="modal" data-target="#myModal">
+                    上传文件
+                    </button>
+                </div>         
+                  <!-- 模态框 -->
+                  <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <!-- 模态框头部 -->
+                        <div class="modal-header">
+                          <h4 class="modal-title">上传文件</h4>
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <form  method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!-- 模态框主体 -->
+                            <div class="modal-body">
+                                    <input type="file" name="upload" class="form-control" style="height: max-content;" >
+                                    <br>                    
+                            </div>
+                            <!-- 模态框底部 -->
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">上传</button>
+                            </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            {% for one in files %}
+            <div class="jumbotron">
+              <div class="card">
+                <div class="card-body">
+                  <p>{{one.file.name}}</p>
+                </div>
+                <div class="card-footer">
+                  <p>{{one.file.size}} Byte</p>
+                </div>
+              </div>
+              <br>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button class="btn btn-danger" value= {{one.id}} style="float: right;border-right: 15px;" name="delete" type="submit">删除</button>
+                    <button class="btn btn-success" value= {{one.id}} style="float: right;border-right: 30px;" name="download" type="submit">下载</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>    
+    </body>
+</html>

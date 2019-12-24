@@ -1,0 +1,12 @@
+{% ifequal status 1 %}
+    <div id="myAlert" class="alert alert-success">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>发送成功</strong>
+    </div>
+{% endifequal %}
+{% ifequal status 2 %}
+    <div id="myAlert" class="alert alert-danger">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <strong>警告！</strong>邮箱错误
+    </div>
+{% endifequal %}

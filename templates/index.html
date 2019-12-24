@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index">概览
+                            <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signOut">登出
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+          
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>{{user.name}}</h1>
+                        </div>
+                        <div class="card-body">
+                            <h4>{{user.profile}}</h4>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="jumbotron">
+                        <h1>最近消息</h1>
+                        <br>
+                        {% for one in msg %}
+                        <div class="card">
+                            <div class="card-header"><a class="dropdown-item" href="/msg"><h4>{{one.fromWho}}:</h4>{{one.content}}</a></div>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                    <div class="jumbotron">
+                        <h1>最近任务</h1>
+                        {% for one in task %}
+                        <div class="card">
+                            <div class="card-header"><a class="dropdown-item" href="/task"><h4>{{one.name}}:</h4>{{one.content}}</a></div>
+                        </div>
+                        <br>
+                        {% endfor %}
+                    </div>
+                </main>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>

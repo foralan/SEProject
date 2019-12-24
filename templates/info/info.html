@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include "head.html" %}
+    <body>
+        {% include "header.html" %}
+        <div class="container-fluid">
+            <div class="row">
+                {% include "info/nav.html" %}
+                <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+                    <h1>我的信息:{{user.name}}</h1><br>
+                    <div class="card">
+                        <div class="card-header">
+                            <p class="lead">ID:  {{user.id}}</p>
+                            <p class="lead">MAIL:  {{user.email}}</p>
+                        </div>
+                        <div class="card-body">
+                            <p class="lead"> {{user.profile}}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <span class="label label-info">工作</span>
+                            <p class="lead">{{user.work}}</p>
+                            <span class="label label-info">手机</span>
+                            <p class="lead">{{user.phone}}</p>
+                        </div>
+                    </div>
+                </main>         
+            </div>
+        </div>    
+    </body>
+</html>
