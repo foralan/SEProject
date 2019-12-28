@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="13632641-8e06-4be0-add5-434bbce9fbf2" name="Default Changelist" comment="" />
+    <list default="true" id="13632641-8e06-4be0-add5-434bbce9fbf2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,6 +218,11 @@
             <path>
               <item name="SEProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="SEProject" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEProject" type="462c0819:PsiDirectoryNode" />
               <item name="SEsite" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -339,7 +347,7 @@
       <workItem from="1577151154932" duration="1562000" />
       <workItem from="1577152745040" duration="451000" />
       <workItem from="1577153221330" duration="8456000" />
-      <workItem from="1577171253695" duration="2226000" />
+      <workItem from="1577171253695" duration="3843000" />
     </task>
     <task id="LOCAL-00001" summary="finish">
       <created>1577171534089</created>
@@ -362,7 +370,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577173666129</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="finish">
+      <created>1577174136926</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1577174136926</updated>
+    </task>
+    <task id="LOCAL-00005" summary="finish">
+      <created>1577174277787</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1577174277787</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -398,7 +420,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112953000" />
+    <option name="totallyTimeSpent" value="114570000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -410,15 +432,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21002132" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21002132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" visible="true" weight="0.3290461" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290461" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.24008575" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24008575" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978564" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
